@@ -14,4 +14,53 @@
         <module>litelibrary-db</module>
     </modules>
 
+    <properties>
+        <!--dependencies-->
+        <mysql-connector-java.version>6.0.5</mysql-connector-java.version>
+
+        <!--plugins-->
+        <sql-maven-plugin.version>1.5</sql-maven-plugin.version>
+
+        <!--jdbc properties-->
+        <jdbc.driver>com.mysql.cj.jdbc.Driver</jdbc.driver>
+        <jdbc.url>jdbc:mysql://localhost:3306/?verifyServerCertificate=false&amp;useSSL=false&amp;requireSSL=false&amp;useLegacyDatetimeCode=false&amp;serverTimezone=UTC</jdbc.url>
+        <jdbc.password>root</jdbc.password>
+        <jdbc.username>root</jdbc.username>
+    </properties>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>mysql</groupId>
+                <artifactId>mysql-connector-java</artifactId>
+                <version>${mysql-connector-java.version}</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+
+    <build>
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <groupId>org.codehaus.mojo</groupId>
+                    <artifactId>sql-maven-plugin</artifactId>
+                    <version>${sql-maven-plugin.version}</version>
+                    <dependencies>
+                        <dependency>
+                            <groupId>mysql</groupId>
+                            <artifactId>mysql-connector-java</artifactId>
+                            <version>${mysql-connector-java.version}</version>
+                        </dependency>
+                    </dependencies>
+                    <configuration>
+                        <driver>${jdbc.driver}</driver>
+                        <url>${jdbc.url}</url>
+                        <username>${jdbc.username}</username>
+                        <password>${jdbc.password}</password>
+                    </configuration>
+                </plugin>
+            </plugins>
+        </pluginManagement>
+    </build>
 </project>
