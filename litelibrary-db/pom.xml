@@ -5,12 +5,25 @@
 
     <parent>
         <artifactId>litelibrary</artifactId>
-        <groupId>by.litelife</groupId>
+        <groupId>by.litelife.litelibrary</groupId>
         <version>1.0-SNAPSHOT</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
     <artifactId>litelibrary-db</artifactId>
     <packaging>jar</packaging>
+
+    <properties>
+        <sql.skip>false</sql.skip>
+    </properties>
+
+    <profiles>
+        <profile>
+            <id>nosql</id>
+            <properties>
+                <sql.skip>true</sql.skip>
+            </properties>
+        </profile>
+    </profiles>
 
     <build>
         <plugins>
@@ -25,6 +38,7 @@
                             <goal>execute</goal>
                         </goals>
                         <configuration>
+                            <skip>${sql.skip}</skip>
                             <autocommit>true</autocommit>
                             <srcFiles>
                                 <srcFile>src/sql/drop_schema.sql</srcFile>
@@ -40,6 +54,7 @@
                             <goal>execute</goal>
                         </goals>
                         <configuration>
+                            <skip>${sql.skip}</skip>
                             <autocommit>true</autocommit>
                             <srcFiles>
                                 <srcFile>src/sql/create_structure.sql</srcFile>
@@ -55,6 +70,7 @@
                             <goal>execute</goal>
                         </goals>
                         <configuration>
+                            <skip>${sql.skip}</skip>
                             <autocommit>true</autocommit>
                             <srcFiles>
                                 <srcFile>src/sql/apply_data.sql</srcFile>
@@ -66,4 +82,5 @@
             </plugin>
         </plugins>
     </build>
+
 </project>
