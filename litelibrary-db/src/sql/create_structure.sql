@@ -1,4 +1,4 @@
-CREATE DATABASE IF NOT EXISTS `litelibrary` /*!40100 DEFAULT CHARACTER SET utf8 */;
+CREATE DATABASE  IF NOT EXISTS `litelibrary` /*!40100 DEFAULT CHARACTER SET utf8 */;
 USE `litelibrary`;
 -- MySQL dump 10.13  Distrib 5.7.12, for Win64 (x86_64)
 --
@@ -26,7 +26,7 @@ DROP TABLE IF EXISTS `book`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `book` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `name` varchar(20) NOT NULL,
+  `name` varchar(45) NOT NULL,
   `author` varchar(45) NOT NULL,
   `description` longtext NOT NULL,
   `genre` int(11) NOT NULL,
@@ -106,4 +106,4 @@ CREATE TABLE `user_book` (
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-09-24 16:12:53
+-- Dump completed on 2017-09-25 22:26:30
