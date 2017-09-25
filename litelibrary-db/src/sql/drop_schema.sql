@@ -1,22 +1,13 @@
-USE `litelibrary`;
+SET FOREIGN_KEY_CHECKS = 0;
 
-ALTER TABLE `litelibrary`.`book` DROP FOREIGN KEY genre;
+DROP TABLE IF EXISTS `litelibrary`.`genre`;
 
+DROP TABLE IF EXISTS `litelibrary`.`user_book`;
 
-ALTER TABLE `litelibrary`.`user` DROP FOREIGN KEY id_genre;
+DROP TABLE IF EXISTS `litelibrary`.`user`;
 
-ALTER TABLE `litelibrary`.`user_book` DROP FOREIGN KEY id_user;
+DROP TABLE IF EXISTS `litelibrary`.`book`;
 
+DROP DATABASE IF EXISTS `litelibrary`;
 
-ALTER TABLE `litelibrary`.`user_book` DROP FOREIGN KEY id_book;
-
-
-DROP TABLE `litelibrary`.`genre`;
-
-DROP TABLE `litelibrary`.`user_book`;
-
-DROP TABLE `litelibrary`.`user`;
-
-DROP TABLE `litelibrary`.`book`;
-
-DROP DATABASE `litelibrary`;
+SET FOREIGN_KEY_CHECKS = 1;
