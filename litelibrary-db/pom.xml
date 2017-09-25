@@ -29,6 +29,7 @@
                             <srcFiles>
                                 <srcFile>src/sql/drop_schema.sql</srcFile>
                             </srcFiles>
+                            <encoding>UTF8</encoding>
                         </configuration>
                     </execution>
 
@@ -43,6 +44,7 @@
                             <srcFiles>
                                 <srcFile>src/sql/create_structure.sql</srcFile>
                             </srcFiles>
+                            <encoding>UTF8</encoding>
                         </configuration>
                     </execution>
 
@@ -57,6 +59,7 @@
                             <srcFiles>
                                 <srcFile>src/sql/apply_data.sql</srcFile>
                             </srcFiles>
+                            <encoding>UTF8</encoding>
                         </configuration>
                     </execution>
                 </executions>
