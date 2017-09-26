@@ -11,6 +11,7 @@
 
     <modules>
         <module>litelibrary-db</module>
+        <module>litelibrary-resources</module>
     </modules>
 
     <properties>
