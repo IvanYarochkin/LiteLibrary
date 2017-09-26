@@ -4,8 +4,8 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 
     <parent>
-        <artifactId>litelibrary</artifactId>
         <groupId>by.litelife.litelibrary</groupId>
+        <artifactId>litelibrary</artifactId>
         <version>1.0-SNAPSHOT</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
@@ -26,6 +26,17 @@
     </profiles>
 
     <build>
+        <resources>
+            <resource>
+                <directory>${basedir}/src</directory>
+                <includes>
+                    <include>sql/drop_schema.sql</include>
+                    <include>sql/create_structure.sql</include>
+                    <include>sql/apply_data.sql</include>
+                </includes>
+            </resource>
+        </resources>
+
         <plugins>
             <plugin>
                 <groupId>org.codehaus.mojo</groupId>
@@ -82,5 +93,4 @@
             </plugin>
         </plugins>
     </build>
-
 </project>
